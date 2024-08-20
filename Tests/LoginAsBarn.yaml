@@ -1,0 +1,25 @@
+appId: com.mycompany.heyhorse
+env:
+    USERNAME: reese@yopmail.com
+    PASSWORD: abcd1234 
+---
+- launchApp
+- runScript: ./Pages/login.js
+- tapOn: "Sign in"
+- assertVisible: "Welcome to HeyHorse"
+- tapOn: ${output.login.emailBtn}
+- inputText: ${USERNAME}
+- tapOn:
+    point: "50%,20%"
+- tapOn:
+    point: "50%,59%"
+- inputText: ${PASSWORD}
+- tapOn:
+    point: "50%,20%"
+- tapOn: ${output.login.loginBtn}
+- assertVisible: "Home"
+- tapOn: "Menu"
+- tapOn: "Settings"
+- tapOn: 'Logout'
+- assertVisible: "Sign in"
+
